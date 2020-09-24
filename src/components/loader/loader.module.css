@@ -1,0 +1,45 @@
+.loader{
+    height: 300px;
+    width: 300px;
+    
+    border:5px #f1f1f1 solid;
+    border-radius: 50%;
+    box-shadow: -10px -10px 15px rgba(255,255,255,1),
+                        10px 10px 15px rgba(0,0,0,.1),
+                        inset -10px -10px 15px rgba(255,255,255,1),
+                        inset 10px 10px 15px rgba(0,0,0,.1);
+    
+    overflow: hidden;
+    z-index: 10;
+    position: relative;
+}
+.innerGradient{
+    
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    z-index:-1;
+    animation:loading-animation 0.5s linear infinite;  
+    filter: blur(30px);
+}
+.loader::before{
+    content: ' ';
+    position: absolute;
+    top:30px;
+    bottom: 30px;
+    left:30px;
+    right:30px;
+    background: #f1f1f1;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+@keyframes loading-animation {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+

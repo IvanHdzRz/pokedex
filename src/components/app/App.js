@@ -1,6 +1,7 @@
 import React, {useState } from 'react'
 import SearchBar from '../searchbar/SearchBar'
 import { useFetchPokemon } from '../../hooks/useFetchPokemon'
+import { Loader } from '../loader/Loader'
 
 
 const App = () => {
@@ -19,7 +20,7 @@ const App = () => {
             <SearchBar onSearch={handleSearch} />
             {
                 loading?
-                (<h2>cargando</h2>)
+                (<Loader />)
                 :
                 (<>
                     <img src={pokemonInfo.sprites.front_default} alt={'img del poke'}/>
