@@ -4,7 +4,7 @@ const matchPokemonName = (keyword) => {
     return (
         pokemonList.filter((pokemonName)=>{
             const  patternName=new RegExp(`^(${keyword})`, 'i');
-            return  pokemonName.match(patternName)!=null
+            return  pokemonName.match(patternName)!==null
         })).slice(0,7);
 }
 

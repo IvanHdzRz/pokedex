@@ -1,14 +1,17 @@
 import React from 'react'
-import pokeList from '../../data/pokemonlist';
 import matchPokemonName from '../../helpers/matchPokemonName';
 import useForm from '../../hooks/useForm';
 
-const SearchBar = () => {
+const SearchBar = ({onSearch}) => {
     const [data,handleChange]= useForm({pokemonName:''})
     const {pokemonName}=data;
-    console.log( matchPokemonName(pokemonName));
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        console.log(pokemonName)
+        onSearch(pokemonName)
+    }
     return (
-        <div>
+        <form onSubmit={handleSubmit}>
             <input 
                 type='text' 
                 name='pokemonName'
@@ -23,7 +26,7 @@ const SearchBar = () => {
                 {
                     //si ya empezo a escribir el usuario muestra sugerencias 
                     //para autocompletar
-                    pokemonName!=''?
+                    pokemonName!==''?
                     (
                         matchPokemonName(pokemonName).map((pokemonSugest, i)=>{
                             return <option value={pokemonSugest} key={i}/>
@@ -35,7 +38,7 @@ const SearchBar = () => {
                     )    
                 }
             </datalist>
-        </div>
+        </form>
     )
 }
 

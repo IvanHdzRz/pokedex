@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import  { useState,useEffect } from 'react'
 
 export const useFetchPokemon = (pokemonName) => {
     const [data, setdata] = useState({
@@ -13,9 +13,9 @@ export const useFetchPokemon = (pokemonName) => {
             error:null,
             pokemonInfo:null,
         })
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).
-            then((data)=>{data.json}).
-            then((data)=>{
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+            .then(data=>data.json())
+            .then((data)=>{
                 setdata({
                     loading:false,
                     error:null,
