@@ -4,8 +4,8 @@ import Styles from './loader.module.css'
 export const Loader = () => {
     return (
         <div>
-            <div class={Styles.loader}>
-                <div class={Styles.innerGradient}>
+            <div className={Styles.loader}>
+                <div className={Styles.innerGradient}>
 
                 </div>
             </div>            

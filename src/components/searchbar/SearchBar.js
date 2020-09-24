@@ -1,6 +1,7 @@
 import React from 'react'
 import matchPokemonName from '../../helpers/matchPokemonName';
 import useForm from '../../hooks/useForm';
+import Styles from './searchBar.module.css'
 
 const SearchBar = ({onSearch}) => {
     const [data,handleChange]= useForm({pokemonName:''})
@@ -20,6 +21,7 @@ const SearchBar = ({onSearch}) => {
                 autoComplete='off' 
                 id='search' 
                 list="pokemon-list"
+                className={Styles.searchBar}
             />
             
             <datalist id='pokemon-list'>
@@ -29,8 +31,14 @@ const SearchBar = ({onSearch}) => {
                     pokemonName!==''?
                     (
                         matchPokemonName(pokemonName).map((pokemonSugest, i)=>{
-                            return <option value={pokemonSugest} key={i}/>
-                        })
+                            return (
+                                <option 
+                                    value={pokemonSugest} 
+                                    key={i}
+                                    className={Styles.option}
+                                />
+                            )
+                            })
                     )
                     :
                     (

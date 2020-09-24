@@ -16,8 +16,9 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div className='app'>
             <SearchBar onSearch={handleSearch} />
+            
             {
                 loading?
                 (<Loader />)
